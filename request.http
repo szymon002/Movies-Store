@@ -1,4 +1,33 @@
+### GET ALL STUDIOS
+GET http://localhost:8080/api/studios
+
+### GET STUDIO BY ID
+GET http://localhost:8080/api/studios/ba84c20f-4744-4010-a0e0-9e525deb6b40
+
+### GET ALL MOVIES
 GET http://localhost:8080/api/movies
-Accept: application/json
+
+### GET MOVIE BY ID
+GET http://localhost:8080/api/movies/12eb463c-31d2-4702-973d-a1ec1e938ed4
+
+### DELETE MOVIE BY ID
+DELETE http://localhost:8080/api/movies/2145f3c9-f0ff-4d4e-81ce-bd3f22fea6de
+
+### GET MOVIE BY STUDIO ID
+GET http://localhost:8080/api/studios/91848afd-fa39-425b-b23b-3f0547fabed1/movies
+
+### CREATE MOVIE
+PUT http://localhost:8080/api/movies/91848afd-fa39-425b-b23b-3f0547fbeda1
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "title": "Testowy Film",
+  "director": "Testowy Dyrektor",
+  "publisher": "Testowy wydawca",
+  "yearOfPublication": 2005,
+  "studio": "eeb8d77e-9ba8-4859-b486-345622c760e8"
+}
+
 
 ###
