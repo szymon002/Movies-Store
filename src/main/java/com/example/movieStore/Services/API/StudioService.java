@@ -15,4 +15,6 @@ public interface StudioService {
     Optional<Studio> find(UUID id);
 
     void deleteById(UUID id);
+
+    void update(Studio studio);
 }

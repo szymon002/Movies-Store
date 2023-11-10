@@ -37,6 +37,12 @@ public class StudioServiceImpl implements StudioService {
 
     @Override
     public void deleteById(UUID id) {
-        repository.deleteById(id);
+        repository.findById(id).ifPresent(repository::delete);
     }
+
+    @Override
+    public void update(Studio studio) {
+        repository.save(studio);
+    }
+
 }

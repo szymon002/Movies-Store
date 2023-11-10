@@ -24,4 +24,7 @@ public interface MovieService {
     List<Movie> getAll();
 
     Optional<Movie> find(UUID id);
+    void update(Movie movie);
+
+
 }

@@ -28,4 +28,13 @@ public interface StudioController {
             UUID id
     );
 
+    @PatchMapping("/api/studios/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    void updateStudio(
+            @PathVariable("id")
+            UUID id,
+            @RequestBody
+            PatchStudioRequest request
+    );
+
 }

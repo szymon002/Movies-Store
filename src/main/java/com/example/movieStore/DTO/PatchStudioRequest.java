@@ -15,4 +15,5 @@ public class PatchStudioRequest {
     int numberOfWorkers;
     int yearsOfExperience;
     String owner;
+    String name;
 }

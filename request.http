@@ -2,13 +2,13 @@
 GET http://localhost:8080/api/studios
 
 ### GET STUDIO BY ID
-GET http://localhost:8080/api/studios/ba84c20f-4744-4010-a0e0-9e525deb6b40
+GET http://localhost:8080/api/studios/62a3b1f6-46cb-4184-bd7d-636a923b1c89
 
 ### GET ALL MOVIES
 GET http://localhost:8080/api/movies
 
 ### GET MOVIE BY ID
-GET http://localhost:8080/api/movies/12eb463c-31d2-4702-973d-a1ec1e938ed4
+GET http://localhost:8080/api/movies/fc24aa03-7d5a-487c-99d2-6fa94aa522f0
 
 ### DELETE MOVIE BY ID
 DELETE http://localhost:8080/api/movies/2145f3c9-f0ff-4d4e-81ce-bd3f22fea6de
@@ -19,15 +19,34 @@ GET http://localhost:8080/api/studios/91848afd-fa39-425b-b23b-3f0547fabed1/movie
 ### CREATE MOVIE
 PUT http://localhost:8080/api/movies/91848afd-fa39-425b-b23b-3f0547fbeda1
 Content-Type: application/json
-Authorization: Basic a2V2aW46dXNlcnVzZXI=
 
 {
   "title": "Testowy Film",
   "director": "Testowy Dyrektor",
   "publisher": "Testowy wydawca",
   "yearOfPublication": 2005,
-  "studio": "eeb8d77e-9ba8-4859-b486-345622c760e8"
+  "studio": "0a19e12d-0ce4-444e-bff1-86714189ea13"
 }
 
+### UPDATE STUDIO
+PATCH http://localhost:8080/api/studios/62a3b1f6-46cb-4184-bd7d-636a923b1c89
+Content-Type: application/json
+
+{
+  "name": "testowe studio",
+  "numberOfWorkers": 25
+
+}
 
 ###
+
+DELETE http://localhost:8080/api/studios/daf676a1-28f9-4212-874e-4b5fdabc4c24
+
+###
+
+PATCH http://localhost:8080/api/movies/b01e0814-5ccf-4179-bc68-89dd05e1eb83
+Content-Type: application/json
+
+{
+  "title": "Zmieniony tytul"
+}

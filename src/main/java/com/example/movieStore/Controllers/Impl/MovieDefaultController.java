@@ -1,12 +1,12 @@
 package com.example.movieStore.Controllers.Impl;
 
 import com.example.movieStore.Controllers.API.MovieController;
-import com.example.movieStore.DTO.GetMovieResponse;
-import com.example.movieStore.DTO.GetMoviesResponse;
-import com.example.movieStore.DTO.PutMovieRequest;
+import com.example.movieStore.DTO.*;
+import com.example.movieStore.Entities.Movie;
 import com.example.movieStore.Functions.MovieToResponseFunction;
 import com.example.movieStore.Functions.MoviesToResponseFunction;
 import com.example.movieStore.Functions.RequestToMovieFunction;
+import com.example.movieStore.Functions.UpdateRequestToMovieFunction;
 import com.example.movieStore.Services.API.MovieService;
 import com.example.movieStore.Services.API.StudioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -24,18 +25,20 @@ public class MovieDefaultController implements MovieController {
     final MovieToResponseFunction movieToResponse;
     final MoviesToResponseFunction moviesToResponse;
     final RequestToMovieFunction requestToMovie;
+    final UpdateRequestToMovieFunction requestUpdateToMovie;
 
     @Autowired
     public MovieDefaultController(MovieService service,
                                   StudioService studioService, MovieToResponseFunction movieToResponse,
                                   MoviesToResponseFunction moviesToResponse,
-                                  RequestToMovieFunction requestToMovie
-    ) {
+                                  RequestToMovieFunction requestToMovie,
+                                  UpdateRequestToMovieFunction requestUpdateToMovie) {
         this.service = service;
         this.studioService = studioService;
         this.movieToResponse = movieToResponse;
         this.moviesToResponse = moviesToResponse;
         this.requestToMovie = requestToMovie;
+        this.requestUpdateToMovie = requestUpdateToMovie;
     }
 
     @Override
@@ -71,5 +74,30 @@ public class MovieDefaultController implements MovieController {
                             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
                         }
                 );
+    }
+
+    @Override
+    public void updateMovie(UUID id, PatchMovieRequest request) {
+        Optional<Movie> existingMovie = service.find(id);
+
+        if (existingMovie.isPresent()) {
+            if (request.getYearOfPublication() == 0) {
+                request.setYearOfPublication( existingMovie.get().getYearOfPublication());
+            }
+
+            if (request.getTitle() == null) {
+                request.setTitle( existingMovie.get().getTitle());
+            }
+
+            if (request.getDirector() == null) {
+                request.setDirector( existingMovie.get().getDirector());
+            }
+
+            if (request.getPublisher() == null) {
+                request.setPublisher( existingMovie.get().getPublisher());
+            }
+        }
+
+        service.update(requestUpdateToMovie.apply(id, request));
     }
 }

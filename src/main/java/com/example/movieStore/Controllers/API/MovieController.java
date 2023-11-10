@@ -1,8 +1,6 @@
 package com.example.movieStore.Controllers.API;
 
-import com.example.movieStore.DTO.GetMovieResponse;
-import com.example.movieStore.DTO.GetMoviesResponse;
-import com.example.movieStore.DTO.PutMovieRequest;
+import com.example.movieStore.DTO.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +43,15 @@ public interface MovieController {
     void deleteMovie(
             @PathVariable("id")
             UUID id
+    );
+
+    @PatchMapping("/api/movies/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    void updateMovie(
+            @PathVariable("id")
+            UUID id,
+            @RequestBody
+            PatchMovieRequest request
     );
 
 }

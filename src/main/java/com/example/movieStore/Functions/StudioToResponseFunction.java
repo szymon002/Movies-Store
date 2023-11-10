@@ -13,6 +13,9 @@ public class StudioToResponseFunction implements Function<Studio, GetStudioRespo
         return GetStudioResponse.builder()
                 .id(studio.getStudioId())
                 .name(studio.getName())
+                .numberOfWorkers(studio.getNumberOfWorkers())
+                .yearsOfExperience(studio.getYearsOfExperience())
+                .owner(studio.getOwner())
                 .build();
     }
 }

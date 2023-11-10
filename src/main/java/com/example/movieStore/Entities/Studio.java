@@ -36,7 +36,7 @@ public class Studio implements Comparable<Studio>, Serializable {
     @Column(name = "years_of_experience")
     int yearsOfExperience;
 
-    @OneToMany(mappedBy = "studio")
+    @OneToMany(mappedBy = "studio", cascade = CascadeType.ALL)
     List<Movie> movies;
 
     public void addMovie(Movie movie) {
