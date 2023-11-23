@@ -1,0 +1,28 @@
+### GET ALL MOVIES
+GET http://localhost:8081/api/movies
+
+### GET MOVIE BY ID
+GET http://localhost:8081/api/movies/f5875513-bf7b-4ae1-b8a5-5b70a1b90e30
+
+### DELETE MOVIE BY ID
+DELETE http://localhost:8081/api/movies/9ad02c2e-e488-4852-84a6-d3c4e70b6a4f
+
+### GET MOVIE BY STUDIO ID
+GET http://localhost:8081/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e30/movies
+
+### CREATE MOVIE
+PUT http://localhost:8081/api/movies/91848afd-fa39-425b-b23b-3f0547fbeda1
+Content-Type: application/json
+
+{
+  "title": "Testowy Film",
+  "director": "Testowy Dyrektor",
+  "publisher": "Testowy wydawca",
+  "yearOfPublication": 2005,
+  "studio": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e30"
+}
+
+
+### DELETE STUDIOS
+DELETE http://localhost:8080/api/studios/daf676a1-28f9-4212-874e-4b5fdabc4c24
+
