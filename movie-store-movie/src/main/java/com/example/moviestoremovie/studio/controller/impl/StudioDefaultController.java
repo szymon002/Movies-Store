@@ -1,6 +1,7 @@
 package com.example.moviestoremovie.studio.controller.impl;
 
 import com.example.moviestoremovie.studio.controller.api.StudioController;
+import com.example.moviestoremovie.studio.entity.Studio;
 import com.example.moviestoremovie.studio.service.api.StudioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,5 +29,10 @@ public class StudioDefaultController implements StudioController {
                             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
                         }
                 );
+    }
+
+    @Override
+    public void createStudio(UUID id) {
+        service.create(Studio.builder().id(id).build());
     }
 }

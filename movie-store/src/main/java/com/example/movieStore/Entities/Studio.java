@@ -19,7 +19,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "studios")
-public class Studio implements Comparable<Studio>, Serializable {
+public class Studio implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID studioId;
@@ -41,33 +41,5 @@ public class Studio implements Comparable<Studio>, Serializable {
 
     public void addMovie(Movie movie) {
         this.movies.add(movie);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Studio studio = (Studio) o;
-        return numberOfWorkers == studio.numberOfWorkers && yearsOfExperience == studio.yearsOfExperience && Objects.equals(name, studio.name) && Objects.equals(owner, studio.owner);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, owner, numberOfWorkers, yearsOfExperience);
-    }
-
-    @Override
-    public String toString() {
-        return "Studio{" +
-                "name='" + name + '\'' +
-                ", owner='" + owner + '\'' +
-                ", numberOfWorkers=" + numberOfWorkers +
-                ", yearsOfExperience=" + yearsOfExperience +
-                '}';
-    }
-
-    @Override
-    public int compareTo(Studio o) {
-        return Integer.compare(this.yearsOfExperience, o.yearsOfExperience);
     }
 }

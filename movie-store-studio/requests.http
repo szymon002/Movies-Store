@@ -1,0 +1,24 @@
+### Get all studios
+
+GET http://localhost:8082/api/studios
+
+### Get single studio
+
+GET http://localhost:8082/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+
+### Delete studio
+
+DELETE http://localhost:8082/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+
+### Create studio
+PUT http://localhost:8082/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e30
+Content-Type: application/json
+
+{
+  "numberOfWorkers": 20,
+  "yearsOfExperience": 2,
+  "owner": "Testowy owner",
+  "name": "Testowy name"
+}
+
+

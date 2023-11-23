@@ -30,11 +30,11 @@ public class InitializeData implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
 
         Studio studio1 = Studio.builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"))
                 .build();
 
         Studio studio2 = Studio.builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("5d1da2ae-6a14-4b6d-8b4f-d117867118d4"))
                 .build();
 
         studioService.create(studio1);

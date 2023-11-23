@@ -26,7 +26,9 @@ public class StudioDefaultService implements StudioService {
 
     @Override
     public void create(Studio studio) {
-        repository.save(studio);
+        if (repository.findById(studio.getId()).isEmpty()) {
+            repository.save(studio);
+        }
     }
 
     @Override
