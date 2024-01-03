@@ -1,0 +1,27 @@
+<article class="text--justified">
+  <header><h2>Studios</h2></header>
+
+  <table *ngIf="studios">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let studio of studios.studios">
+      <td>{{studio.name}}</td>
+      <td>
+        <button (click)="onDelete(studio)">Delete</button>
+      </td>
+      <td>
+        <a [routerLink]="['/studios', studio.id, 'edit']">Edit</a>
+      </td>
+    </tr>
+    <tr>
+      <a [routerLink]="['/studios/create']">Create new studio</a>
+    </tr>
+    </tbody>
+  </table>
+</article>
