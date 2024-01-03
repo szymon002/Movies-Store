@@ -1,13 +1,18 @@
-export interface StudioDetails {
+import {Movies} from "../../movie/model/movies";
+import {Movie} from "../../movie/model/movie";
 
-  id: string;
+export interface StudioDetails{
 
-  name: string;
+    id: string
 
-  owner: string;
+    name: string;
 
-  numberOfWorkers: number;
+    owner: string;
 
-  yearsOfExperience: number;
+    numberOfWorkers: number;
+
+    yearsOfExperience: number;
+
+    movies: Movie[];
 
 }

@@ -22,6 +22,4 @@ export class StudioListComponent implements OnInit{
     this.service.deleteStudio(studio.id).subscribe(() => this.ngOnInit());
   }
 
-
-
 }

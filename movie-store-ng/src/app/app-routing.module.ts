@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { StudioListComponent } from "./studio/view/studio-list/studio-list.component";
 import { StudioCreateComponent} from "./studio/view/studio-create/studio-create.component";
 import { StudioEditComponent} from "./studio/view/studio-edit/studio-edit.component";
+import {StudioViewComponent} from "./studio/view/studio-view/studio-view.component";
+import {MovieCreateComponent} from "./movie/view/movie-create/movie-create.component";
+import {MovieEditComponent} from "./movie/view/movie-edit/movie-edit.component";
+import {MovieViewComponent} from "./movie/view/movie-view/movie-view.component";
 //import { CharacterListComponent } from "./character/view/character-list/character-list.component";
 //import { CharacterViewComponent } from "./character/view/character-view/character-view.component";
 //import { CharacterEditComponent } from "./character/view/character-edit/character-edit.component";
@@ -22,20 +26,23 @@ const routes: Routes = [
   {
     component: StudioEditComponent,
     path: "studios/:uuid/edit"
-  }
- /* {
-    component: CharacterListComponent,
-    path: "characters"
   },
   {
-    component: CharacterViewComponent,
-    path: "characters/:uuid"
-  }
-  ,
+    component: StudioViewComponent,
+    path: "studios/:uuid"
+  },
   {
-    component: CharacterEditComponent,
-    path: "characters/:uuid/edit"
-  } */
+    component: MovieCreateComponent,
+    path: "studios/:uuid/movies/create"
+  },
+  {
+    component: MovieEditComponent,
+    path: "studios/:studioId/movies/:movieId/edit"
+  },
+  {
+    component: MovieViewComponent,
+    path: "studios/:studioId/movies/:movieId"
+  }
 ];
 
 /**

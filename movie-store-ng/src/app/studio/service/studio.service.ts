@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Studios } from "../model/studios";
-import { StudioDetails } from "../model/studio-details";
+import { StudioEditForm } from "../model/studio-edit-form";
 import { StudioForm} from "../model/studio-form";
+import {Movies} from "../../movie/model/movies";
 
 @Injectable()
 export class StudioService {
@@ -17,7 +18,11 @@ export class StudioService {
   }
 
   getStudio(uuid: string): Observable<any> {
-    return this.http.get<StudioDetails>('/api/studios/' + uuid)
+    return this.http.get<StudioEditForm>('/api/studios/' + uuid)
+  }
+
+  getMovies(uuid: string): Observable<any> {
+    return this.http.get<Movies>('/api/studios/' + uuid + '/movies')
   }
 
   deleteStudio(uuid: string): Observable<any> {
@@ -32,4 +37,7 @@ export class StudioService {
     return this.http.patch('/api/studios/' + uuid, request);
   }
 
+  deleteMovie(uuid: string): Observable<any> {
+    return this.http.delete('/api/movies/' + uuid);
+  }
 }

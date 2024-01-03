@@ -11,13 +11,14 @@ import { MainComponent } from './component/main/main.component';
 import { StudioListComponent } from './studio/view/studio-list/studio-list.component';
 import { HttpClientModule } from "@angular/common/http";
 import { StudioService } from "./studio/service/studio.service";
-//import { CharacterListComponent } from './character/view/character-list/character-list.component';
-//import { CharacterService } from './character/service/character.service';
-//import { CharacterViewComponent } from './character/view/character-view/character-view.component';
-//import { CharacterEditComponent } from './character/view/character-edit/character-edit.component';
 import { FormsModule } from "@angular/forms";
 import {StudioCreateComponent} from "./studio/view/studio-create/studio-create.component";
 import {StudioEditComponent} from "./studio/view/studio-edit/studio-edit.component";
+import {StudioViewComponent} from "./studio/view/studio-view/studio-view.component";
+import {MovieCreateComponent} from "./movie/view/movie-create/movie-create.component";
+import {MovieService} from "./movie/service/movie-service";
+import {MovieEditComponent} from "./movie/view/movie-edit/movie-edit.component";
+import {MovieViewComponent} from "./movie/view/movie-view/movie-view.component";
 
 
 
@@ -30,10 +31,11 @@ import {StudioEditComponent} from "./studio/view/studio-edit/studio-edit.compone
     MainComponent,
     StudioListComponent,
     StudioCreateComponent,
-    StudioEditComponent
-   // CharacterListComponent,
-  //  CharacterViewComponent,
-   // CharacterEditComponent
+    StudioEditComponent,
+    StudioViewComponent,
+    MovieCreateComponent,
+    MovieEditComponent,
+    MovieViewComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import {StudioEditComponent} from "./studio/view/studio-edit/studio-edit.compone
     HttpClientModule
   ],
   providers: [
-    //CharacterService,
+    MovieService,
     StudioService
   ],
   bootstrap: [

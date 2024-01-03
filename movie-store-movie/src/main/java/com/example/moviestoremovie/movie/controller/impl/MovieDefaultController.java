@@ -11,6 +11,7 @@ import com.example.moviestoremovie.movie.function.MoviesToResponseFunction;
 import com.example.moviestoremovie.movie.function.RequestToMovieFunction;
 import com.example.moviestoremovie.movie.function.UpdateRequestToMovieFunction;
 import com.example.moviestoremovie.movie.service.api.MovieService;
+import com.example.moviestoremovie.studio.entity.Studio;
 import com.example.moviestoremovie.studio.service.api.StudioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -84,23 +85,32 @@ public class MovieDefaultController implements MovieController {
         Optional<Movie> existingMovie = service.find(id);
 
         if (existingMovie.isPresent()) {
-            if (request.getYearOfPublication() == 0) {
-                request.setYearOfPublication( existingMovie.get().getYearOfPublication());
+            if (request.getStudioId() != null) {
+                Studio existingStudio = studioService.find(request.getStudioId())
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Studio not found"));
+
+                existingMovie.get().setStudio(existingStudio);
             }
 
-            if (request.getTitle() == null) {
-                request.setTitle( existingMovie.get().getTitle());
+            if (request.getYearOfPublication() != 0) {
+                existingMovie.get().setYearOfPublication(request.getYearOfPublication());
             }
 
-            if (request.getDirector() == null) {
-                request.setDirector( existingMovie.get().getDirector());
+            if (request.getTitle() != null) {
+                existingMovie.get().setTitle(request.getTitle());
             }
 
-            if (request.getPublisher() == null) {
-                request.setPublisher( existingMovie.get().getPublisher());
+            if (request.getDirector() != null) {
+                existingMovie.get().setDirector(request.getDirector());
             }
+
+            if (request.getPublisher() != null) {
+                existingMovie.get().setPublisher(request.getPublisher());
+            }
+
+            service.update(existingMovie.get());
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-
-        service.update(requestUpdateToMovie.apply(id, request));
     }
 }

@@ -1,0 +1,63 @@
+<article *ngIf="studio">
+  <header><h2>{{studio.name}}</h2></header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+
+        <div class="row mb-2">
+          <div class="col-6">
+            <b>Owner</b>
+          </div>
+          <div class="col-6">
+            <span>{{studio.owner}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            <b>Years of experience</b>
+          </div>
+          <div class="col-6">
+            <span>{{studio.yearsOfExperience}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            <b>Number of workers</b>
+          </div>
+          <div class="col-6">
+            <span>{{studio.numberOfWorkers}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            <b>Movies</b>
+          </div>
+          <div class="col-6">
+            <ng-container *ngIf="studio.movies">
+              <tr *ngFor="let movie of studio.movies">
+                <td>{{ movie.title }}</td>
+                <td>
+                  <button (click)="onDelete(movie)">Delete</button>
+                </td>
+                <td>
+                  <a [routerLink]="['/studios', studio.id, 'movies', movie.id, 'edit']">Edit</a>
+                </td>
+                <td>
+                  <a [routerLink]="['/studios', studio.id, 'movies', movie.id]">View details</a>
+                </td>
+              </tr>
+            </ng-container>
+            <div *ngIf="!studio.movies">No movies available</div>
+          </div>
+        </div>
+        <tr>
+          <a [routerLink]="['/studios', studio.id, 'movies', 'create']">Create new movie</a>
+        </tr>
+    </div>
+  </div>
+  </div>
+</article>

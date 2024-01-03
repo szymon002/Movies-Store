@@ -2,6 +2,8 @@ package com.example.moviestoremovie.movie.dto;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @Builder
@@ -14,4 +16,5 @@ public class PatchMovieRequest {
     String director;
     String publisher;
     int yearOfPublication;
+    UUID studioId;
 }
