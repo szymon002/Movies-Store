@@ -2,6 +2,7 @@ package com.example.moviestoremovie.movie.function;
 
 import com.example.moviestoremovie.movie.dto.PatchMovieRequest;
 import com.example.moviestoremovie.movie.entity.Movie;
+import com.example.moviestoremovie.studio.entity.Studio;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -17,6 +18,9 @@ public class UpdateRequestToMovieFunction implements BiFunction<UUID, PatchMovie
                 .director(patchMovieRequest.getDirector())
                 .publisher(patchMovieRequest.getPublisher())
                 .yearOfPublication(patchMovieRequest.getYearOfPublication())
+                .studio(Studio.builder()
+                    .id(patchMovieRequest.getStudioId())
+                    .build())
                 .build();
     }
 }

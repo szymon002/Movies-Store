@@ -23,6 +23,7 @@ public class GetStudiosResponse {
     @EqualsAndHashCode
     public static class Studio {
         UUID id;
+        String name;
     }
 
     List<Studio> studios;

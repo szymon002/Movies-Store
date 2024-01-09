@@ -16,6 +16,7 @@ public class StudiosToResponseFunction implements Function<List<Studio>, GetStud
                 .studios(entities.stream()
                         .map(studio -> GetStudiosResponse.Studio.builder()
                                 .id(studio.getId())
+                                .name(studio.getName())
                                 .build())
                         .toList())
                 .build();

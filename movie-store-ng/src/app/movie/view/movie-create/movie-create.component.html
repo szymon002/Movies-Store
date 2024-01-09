@@ -1,0 +1,48 @@
+<article>
+    <header><h2>Create movie</h2></header>
+
+    <form class="container"  #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-4 p-2">
+                <div>
+                    <label for="title">Title:</label>
+                    <input id="title" name="title" [(ngModel)]="movie.title"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 p-2">
+                <div>
+                    <label for="director">Director:</label>
+                    <input id="director" name="director" [(ngModel)]="movie.director"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 p-2">
+                <div>
+                    <label for="publisher">Publisher:</label>
+                    <input id="publisher" name="publisher" [(ngModel)]="movie.publisher"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 p-2">
+                <div>
+                    <label for="yearOfPublication">Year of publication:</label>
+                    <input id="yearOfPublication" name="yearOfPublication" [(ngModel)]="movie.yearOfPublication"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2 p-2">
+                <button type="submit">Create</button>
+            </div>
+        </div>
+
+    </form>
+</article>
