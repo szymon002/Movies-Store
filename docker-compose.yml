@@ -9,7 +9,7 @@ services:
     image: movie-store-studio:1.0.0
     restart: always
     environment:
-      MOVIE_URL: "http://movie-store-movie:8080"
+      MOVIESTOREMOVIE_MOVIE_URL: "http://movie-store-movie:8080"
 
   gateway:
     image: gateway:1.0.0
