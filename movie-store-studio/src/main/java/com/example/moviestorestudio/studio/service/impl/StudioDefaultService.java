@@ -26,7 +26,6 @@ public class StudioDefaultService implements StudioService {
     @Override
     public void create(Studio studio) {
         repository.save(studio);
-        eventRepository.create(studio.getId(), studio);
     }
 
     @Override

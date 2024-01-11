@@ -17,5 +17,5 @@ ENV API_URL http://localhost:8080/api
 
 EXPOSE 80
 
-ADD dist/movie-store-ng /usr/share/nginx/html/
+ADD dist/movie-store-ng/browser /usr/share/nginx/html/
 ADD docker/etc/nginx/templates/ /etc/nginx/templates/

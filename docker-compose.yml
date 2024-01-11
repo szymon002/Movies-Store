@@ -1,0 +1,28 @@
+version: '1'
+
+services:
+  movie-store-movie:
+    image: movie-store-movie:1.0.0
+    restart: always
+
+  movie-store-studio:
+    image: movie-store-studio:1.0.0
+    restart: always
+    environment:
+      MOVIE_URL: "http://movie-store-movie:8080"
+
+  gateway:
+    image: gateway:1.0.0
+    restart: always
+    environment:
+      MOVIE_URL: "http://movie-store-movie:8080"
+      STUDIO_URL: "http://movie-store-studio:8080"
+      MOVIE_GATEWAY_HOST: "gateway:8080"
+
+  movie-store-ng:
+    image: movie-store-ng:1.0.0
+    restart: always
+    environment:
+      API_URL: http://gateway:8080/api
+    ports:
+      - "8087:80"
