@@ -1,4 +1,4 @@
-version: '1'
+version: '3'
 
 services:
   movie-store-movie:
@@ -15,9 +15,9 @@ services:
     image: gateway:1.0.0
     restart: always
     environment:
-      MOVIE_URL: "http://movie-store-movie:8080"
-      STUDIO_URL: "http://movie-store-studio:8080"
-      MOVIE_GATEWAY_HOST: "gateway:8080"
+      MOVIESTORE_MOVIE_URL: "http://movie-store-movie:8080"
+      MOVIESTORE_STUDIO_URL: "http://movie-store-studio:8080"
+      MOVIESTORE_GATEWAY_HOST: "gateway:8080"
 
   movie-store-ng:
     image: movie-store-ng:1.0.0
