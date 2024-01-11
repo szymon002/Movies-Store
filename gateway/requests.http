@@ -8,7 +8,7 @@ GET http://localhost:8084/api/movies/19222b29-4c31-4976-8320-f3a23148af3c
 DELETE http://localhost:8084/api/movies/dc7cb65e-3e51-44b8-a4a1-18917c3a7361
 
 ### GET MOVIE BY STUDIO ID
-GET http://localhost:8084/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76/movies
+GET http://localhost:8084/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e72/movies
 
 ### CREATE MOVIE
 PUT http://localhost:8084/api/movies/91848afd-fa39-425b-b23b-3f0547fbeda1
@@ -19,7 +19,7 @@ Content-Type: application/json
   "director": "Testowy Dyrektor",
   "publisher": "Testowy wydawca",
   "yearOfPublication": 2005,
-  "studio": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e30"
+  "studio": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e72"
 }
 
 
@@ -39,7 +39,7 @@ GET http://localhost:8084/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
 DELETE http://localhost:8084/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
 
 ### Create studio
-PUT http://localhost:8084/api/studios/55
+PUT http://localhost:8084/api/studios/f5875513-bf7b-4ae1-b8a5-5b70a1b90e72
 Content-Type: application/json
 
 {
