@@ -1,6 +1,6 @@
 FROM nginx:1.23.3
 
-LABEL org.opencontainers.image.title="movies-store-ng"
+LABEL org.opencontainers.image.title="movie-store-ng"
 LABEL org.opencontainers.image.authors="Szymon Malecki"
 LABEL org.opencontainers.image.source="https://github.com/szymon002/Movies-Store"
 LABEL org.opencontainers.image.url="https://github.com/szymon002/Movies-Store"

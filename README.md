@@ -23,4 +23,3 @@ Simple front-end based on angular framework and back-end using spring boot. Appl
 
 ## Author
 - Szymon Małecki
-
